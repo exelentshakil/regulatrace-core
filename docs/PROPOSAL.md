@@ -1,7 +1,6 @@
 live: https://regulatrace-core.vercel.app
 code: https://github.com/exelentshakil/regulatrace-core
 work: https://shakilhq.com
-ml lab: https://ml-bangla.vercel.app
 
 hi michael,
 

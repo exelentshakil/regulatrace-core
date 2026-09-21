@@ -18,7 +18,6 @@ import {
   CheckCircle2,
   ExternalLink,
   Code2,
-  Brain,
   FileCheck,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -91,28 +90,6 @@ export function AiGovernanceDrawer({ open, onOpenChange }: AiGovernanceDrawerPro
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* ML Research Lab Pointer */}
-          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-[var(--color-text-primary)] flex items-center gap-1.5">
-                <Brain className="h-4 w-4 text-[#533AFD] dark:text-[#7A68FF]" />
-                ML &amp; Systems Research Authority
-              </span>
-              <a
-                href="https://ml-bangla.vercel.app"
-                target="_blank"
-                rel="noreferrer"
-                className="text-xs font-semibold text-[#533AFD] dark:text-[#7A68FF] hover:underline flex items-center gap-1"
-              >
-                <span>Live Lab</span>
-                <ExternalLink className="h-3 w-3" />
-              </a>
-            </div>
-            <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-              Author of enterprise ML engineering cookbooks: 8-stage pipelines, local Apple Silicon MLX tuning, XGBoost tabular optimization (0.1ms, $0 token cost), and private vLLM production runners.
-            </p>
           </div>
 
           {/* 3-Tier Execution Topology */}
