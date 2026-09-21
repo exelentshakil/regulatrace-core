@@ -15,7 +15,7 @@ at $80/hr for 20 hrs/week, here is how i structure the takeover:
 • week 2: blunt technical handover assessment delivered (what is rock solid, what is a liability, and prioritized fixes)
 • ongoing: small-to-medium features shipped in days, Python calc engine bridge, and zero guesswork
 
-which cloud infrastructure is your Python pipeline running on (Render, AWS, or GCP)?
+how does Next.js currently communicate with the Python calculation engine on Render (internal HTTP/FastAPI, gRPC, or a database queue)?
 
 happy to hop on a quick 10-minute call to walk through the architecture.
 
