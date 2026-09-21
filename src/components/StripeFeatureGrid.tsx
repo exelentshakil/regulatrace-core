@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { LayoutGrid, Users, MessageSquare, ChevronRight } from 'lucide-react';
+import { Database, Cpu, ShieldCheck, ChevronRight } from 'lucide-react';
 
 export interface StripeFeatureGridProps {
   onOpenGovernance?: () => void;
@@ -21,28 +21,28 @@ interface FeatureItem {
 
 const FEATURES: FeatureItem[] = [
   {
-    id: 'services',
-    icon: LayoutGrid,
-    title: 'Professional services.',
-    description: 'Get tailored architectural guidance from senior systems engineers on Cloudflare Stream CDN, Replit backend stabilization, and Apple StoreKit 2 integration.',
-    linkText: 'View services & workflow',
-    action: 'pipeline',
+    id: 'postgres',
+    icon: Database,
+    title: 'PostgreSQL & PostGIS depth.',
+    description: 'Real database mastery: query plan optimization with EXPLAIN (ANALYZE, BUFFERS), GiST spatial indexes, ST_DWithin buffer calculations, and PgBouncer connection stability on Render.',
+    linkText: 'View database telemetry & plans',
+    action: 'logs',
   },
   {
-    id: 'certifications',
-    icon: Users,
-    title: 'Securiti-certified experts.',
-    description: 'Work with a validated AI governance architect specializing in Gartner AI TRiSM, NIST AI RMF, and inline LLM firewalls (Cert ID: 14B411BCE-14B411A3D-1451CFE76).',
-    linkText: 'View certifications & audit',
+    id: 'ml_private_cloud',
+    icon: Cpu,
+    title: '4-bit LoRA & private cloud ML.',
+    description: 'Run fine-tuned domain models via 4-bit quantized LoRA adapters inside an isolated container in your private cloud. 100% of sensitive client data remains strictly on your infrastructure.',
+    linkText: 'Explore private ML & governance',
     action: 'governance',
   },
   {
-    id: 'retainers',
-    icon: MessageSquare,
-    title: 'Support & retainers.',
-    description: 'Receive ongoing operational monitoring, Inngest background event queues, automated workout generation failover, and strict 99.999% SLA response tracking.',
-    linkText: 'View execution logs & SLA',
-    action: 'logs',
+    id: 'defensible_takeover',
+    icon: ShieldCheck,
+    title: 'Defensible takeover & handover.',
+    description: 'Blunt 2-week codebase audit, line-by-line statutory rule linking, clean Python calculation engine integration, and rapid feature turnaround at 20 hours per week.',
+    linkText: 'Test interactive rule engine',
+    action: 'pipeline',
   },
 ];
 
@@ -74,9 +74,9 @@ export function StripeFeatureGrid({
         {/* Two-Tone Section Headline with Stripe Opacity Balance */}
         <div className="max-w-3xl mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
-            Powering businesses of all sizes.{' '}
+            Built for mission-critical regulatory data.{' '}
             <span className="text-[var(--color-text-secondary)] opacity-75 font-normal">
-              Scale your mobile backend on a battle-tested architecture that adapts to your growth.
+              High-throughput spatial queries, deterministic rule verification, and private cloud ML execution.
             </span>
           </h2>
         </div>
