@@ -70,13 +70,13 @@ export function StripeHero({
             {/* Master Stripe Two-Tone Typography Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.03em] text-[var(--color-text-primary)] leading-[1.12]">
-                {siteConfig.name} infrastructure to{" "}
+                Defensible data answers powered by{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#635BFF] via-[#7A68FF] to-[#00D4FF] font-bold">
-                  scale your operations.
+                  safe, private custom AI.
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-[20px] text-[#425466] dark:text-slate-300 font-normal leading-relaxed max-w-2xl">
-                {siteConfig.description}
+                Turn dense public datasets and complex regulatory rules into structured, defensible answers for professional users. Every single number links directly back to governing law with zero AI hallucinations, sub-15ms database speed, and 100% of your confidential data staying safely inside your private cloud.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export function StripeHero({
                 onClick={onLaunchCockpit || onExplore}
                 className="h-11 px-6 text-[15px] font-semibold bg-[#635BFF] hover:bg-[#533AFD] text-white shadow-xs rounded-[4px] transition-all cursor-pointer flex items-center gap-1.5"
               >
-                Launch interactive cockpit
+                Test live regulatory cockpit
                 <ChevronRight className="h-4 w-4" />
               </Button>
 
@@ -95,9 +95,29 @@ export function StripeHero({
                 onClick={onExploreSchemas || onExplore}
                 className="h-11 px-5.5 text-[15px] font-medium border-[var(--color-border)] bg-[var(--color-surface)]/90 hover:bg-[var(--color-panel-subtle)] text-[var(--color-text-primary)] rounded-[4px] shadow-2xs cursor-pointer flex items-center gap-1.5 backdrop-blur-xs"
               >
-                Explore API &amp; schemas
+                Explore PostGIS &amp; ML schemas
                 <ChevronRight className="h-4 w-4 text-[var(--color-text-muted)]" />
               </Button>
+            </div>
+
+            {/* 4-Pillar Executive Trust & Business Value Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-xs font-medium max-w-2xl">
+              <div className="flex items-center gap-1.5 p-2 rounded bg-[var(--color-panel-subtle)] border border-[var(--color-border)]/70 text-[var(--color-text-primary)]">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                <span className="truncate text-[11.5px]">100% Private Cloud ML</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded bg-[var(--color-panel-subtle)] border border-[var(--color-border)]/70 text-[var(--color-text-primary)]">
+                <span className="h-2 w-2 rounded-full bg-[#533AFD] shrink-0" />
+                <span className="truncate text-[11.5px]">Zero AI Hallucinations</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded bg-[var(--color-panel-subtle)] border border-[var(--color-border)]/70 text-[var(--color-text-primary)]">
+                <span className="h-2 w-2 rounded-full bg-teal-500 shrink-0" />
+                <span className="truncate text-[11.5px]">14.2ms Spatial PostGIS</span>
+              </div>
+              <div className="flex items-center gap-1.5 p-2 rounded bg-[var(--color-panel-subtle)] border border-[var(--color-border)]/70 text-[var(--color-text-primary)]">
+                <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
+                <span className="truncate text-[11.5px]">Shipped in Days, Not Months</span>
+              </div>
             </div>
 
             {/* Stripe Institutional Enterprise Client Logos Strip */}

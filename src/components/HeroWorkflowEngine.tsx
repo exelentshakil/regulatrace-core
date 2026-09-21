@@ -13,6 +13,10 @@ import {
   Cpu,
   Lock,
   Database,
+  FileText,
+  AlertCircle,
+  HelpCircle,
+  Clock,
   ArrowRight,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -26,6 +30,7 @@ export function HeroWorkflowEngine() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [engineMode, setEngineMode] = useState<'private_lora' | 'deterministic' | 'public_failover'>('private_lora');
+  const [viewTab, setViewTab] = useState<'business' | 'technical'>('business');
   const [result, setResult] = useState<Record<string, unknown> | null>(siteConfig.workflow.sampleResponse);
   const [stepStatus, setStepStatus] = useState({
     firewall: 'VERIFIED • Zero PII Leakage',
@@ -169,62 +174,82 @@ export function HeroWorkflowEngine() {
       <CardContent className="p-4 sm:p-6 space-y-6">
         {/* Engine Mode Selector */}
         <div className="space-y-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] font-mono">
-            Select Active Processing Engine:
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div className="flex items-center justify-between">
+            <label className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] font-mono">
+              Step 1: Choose How the System Processes Your Data:
+            </label>
+            <span className="text-[11px] text-[var(--color-text-muted)] font-sans">
+              Tailored for non-technical leadership &amp; technical architects
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <button
               type="button"
               onClick={() => setEngineMode('private_lora')}
-              className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
+              className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
                 engineMode === 'private_lora'
-                  ? 'border-[#533AFD] bg-[#533AFD]/8 text-[#533AFD] dark:text-[#7A68FF] shadow-xs'
+                  ? 'border-[#533AFD] bg-[#533AFD]/8 text-[#533AFD] dark:text-[#7A68FF] shadow-xs ring-1 ring-[#533AFD]/20'
                   : 'border-[var(--color-border)] bg-[var(--color-panel-subtle)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
               }`}
             >
-              <div className="flex items-center gap-1.5 font-bold text-xs">
-                <Cpu className="h-3.5 w-3.5" />
-                4-Bit LoRA Private Container
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center gap-1.5 font-bold text-xs">
+                  <Cpu className="h-3.5 w-3.5 text-[#533AFD] dark:text-[#7A68FF]" />
+                  Custom Private AI (4-Bit LoRA)
+                </div>
+                <span className="text-[10px] bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-1.5 py-0.5 rounded font-bold font-mono">
+                  100% Safe
+                </span>
               </div>
-              <div className="text-[11px] opacity-80 mt-1">
-                Zero external egress • Render VPC isolated
-              </div>
+              <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+                Runs inside your private cloud container. Zero data leaves your infrastructure to OpenAI or third parties.
+              </p>
             </button>
 
             <button
               type="button"
               onClick={() => setEngineMode('deterministic')}
-              className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
+              className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
                 engineMode === 'deterministic'
-                  ? 'border-emerald-600 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 shadow-xs'
+                  ? 'border-emerald-600 bg-emerald-50/60 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 shadow-xs ring-1 ring-emerald-500/20'
                   : 'border-[var(--color-border)] bg-[var(--color-panel-subtle)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
               }`}
             >
-              <div className="flex items-center gap-1.5 font-bold text-xs">
-                <Database className="h-3.5 w-3.5" />
-                PostGIS &amp; Python Engine
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center gap-1.5 font-bold text-xs">
+                  <Database className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                  PostGIS + Python Calc Engine
+                </div>
+                <span className="text-[10px] bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 px-1.5 py-0.5 rounded font-bold font-mono">
+                  $0 Token Cost
+                </span>
               </div>
-              <div className="text-[11px] opacity-80 mt-1">
-                0.1ms • $0 token cost • Pure math
-              </div>
+              <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+                0.1ms pure mathematical execution. Exact spatial boundaries and legal formulas with zero AI hallucinations.
+              </p>
             </button>
 
             <button
               type="button"
               onClick={() => setEngineMode('public_failover')}
-              className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
+              className={`p-3.5 rounded-lg border text-left transition-all cursor-pointer ${
                 engineMode === 'public_failover'
-                  ? 'border-teal-600 bg-teal-50/60 dark:bg-teal-950/30 text-teal-700 dark:text-teal-300 shadow-xs'
+                  ? 'border-teal-600 bg-teal-50/60 dark:bg-teal-950/30 text-teal-700 dark:text-teal-300 shadow-xs ring-1 ring-teal-500/20'
                   : 'border-[var(--color-border)] bg-[var(--color-panel-subtle)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
               }`}
             >
-              <div className="flex items-center gap-1.5 font-bold text-xs">
-                <Sparkles className="h-3.5 w-3.5" />
-                Dual Public Failover
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center gap-1.5 font-bold text-xs">
+                  <Sparkles className="h-3.5 w-3.5 text-teal-600 dark:text-teal-400" />
+                  Dual Public Cloud Failover
+                </div>
+                <span className="text-[10px] bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 px-1.5 py-0.5 rounded font-bold font-mono">
+                  Sub-80ms
+                </span>
               </div>
-              <div className="text-[11px] opacity-80 mt-1">
-                Gemini 2.0 Flash + GPT-4o-mini
-              </div>
+              <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+                Fast public intent classification using Google Gemini 2.0 Flash with automatic failover to OpenAI GPT-4o-mini.
+              </p>
             </button>
           </div>
         </div>
@@ -233,7 +258,7 @@ export function HeroWorkflowEngine() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)] font-mono">
-              {siteConfig.workflow.inputLabel}
+              Step 2: Enter Any Legal Rule, Municipal Parcel, or Statutory Query:
             </label>
             <button
               onClick={() => setInputText(siteConfig.workflow.defaultInput)}
@@ -251,12 +276,12 @@ export function HeroWorkflowEngine() {
           />
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
             <span className="text-[11px] text-[var(--color-text-muted)] font-mono">
-              Every calculated number traces back to statutory citations. Open ambiguities flagged explicitly.
+              Every displayed number links to verified law. If data is open or disputed, we show the open question instead of guessing.
             </span>
             <Button
               onClick={handleExecute}
               disabled={loading}
-              className="h-9 px-4 text-xs font-semibold bg-[#635BFF] hover:bg-[#533AFD] text-white shadow-xs shrink-0"
+              className="h-9 px-4 text-xs font-semibold bg-[#635BFF] hover:bg-[#533AFD] text-white shadow-xs shrink-0 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -283,7 +308,7 @@ export function HeroWorkflowEngine() {
             <div className="flex items-center gap-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] p-2.5 shadow-2xs">
               <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div className="min-w-0">
-                <div className="text-[10px] text-[var(--color-text-muted)] font-sans uppercase">Stage 1 • Privacy &amp; PII Guard</div>
+                <div className="text-[10px] text-[var(--color-text-muted)] font-sans uppercase">Stage 1 • Privacy &amp; Data Guard</div>
                 <div className="font-semibold text-emerald-600 dark:text-emerald-400 truncate">{stepStatus.firewall}</div>
               </div>
             </div>
@@ -308,38 +333,114 @@ export function HeroWorkflowEngine() {
           </div>
         </div>
 
-        {/* Structured JSON Output Box */}
+        {/* Dual-Perspective Output Tabs: Plain English vs Technical JSON */}
         {result && (
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between pb-1 border-b border-[var(--color-border)]">
               <div className="flex items-center gap-2">
-                <Terminal className="h-3.5 w-3.5 text-[#533AFD] dark:text-[#7A68FF]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
-                  Verified Defensible Payload (Structured Audit Output)
-                </span>
+                <div className="flex bg-[var(--color-panel-subtle)] p-1 rounded-md border border-[var(--color-border)]">
+                  <button
+                    type="button"
+                    onClick={() => setViewTab('business')}
+                    className={`px-3 py-1 text-xs font-semibold rounded transition-all cursor-pointer flex items-center gap-1.5 ${
+                      viewTab === 'business'
+                        ? 'bg-[var(--color-surface)] text-[#533AFD] dark:text-[#7A68FF] shadow-xs'
+                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+                    }`}
+                  >
+                    <FileText className="h-3.5 w-3.5" />
+                    Plain English Business Value
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewTab('technical')}
+                    className={`px-3 py-1 text-xs font-semibold rounded transition-all cursor-pointer flex items-center gap-1.5 ${
+                      viewTab === 'technical'
+                        ? 'bg-[var(--color-surface)] text-[#533AFD] dark:text-[#7A68FF] shadow-xs'
+                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+                    }`}
+                  >
+                    <Terminal className="h-3.5 w-3.5" />
+                    Technical JSON &amp; Query Plans
+                  </button>
+                </div>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleCopy}
-                className="h-7 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] font-mono"
-              >
-                {copied ? (
-                  <>
-                    <Check className="h-3.5 w-3.5 mr-1 text-emerald-600" />
-                    Copied
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-3.5 w-3.5 mr-1" />
-                    Copy JSON
-                  </>
-                )}
-              </Button>
+
+              {viewTab === 'technical' && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleCopy}
+                  className="h-7 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] font-mono cursor-pointer"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="h-3.5 w-3.5 mr-1 text-emerald-600" />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-3.5 w-3.5 mr-1" />
+                      Copy JSON
+                    </>
+                  )}
+                </Button>
+              )}
             </div>
-            <pre className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 text-xs font-mono text-[var(--color-text-primary)] overflow-x-auto max-h-72 leading-relaxed">
-              {JSON.stringify(result, null, 2)}
-            </pre>
+
+            {viewTab === 'business' ? (
+              /* Plain English Business Cards (Readable by any executive or client) */
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {/* Value Card 1 */}
+                <div className="rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/20 p-4 space-y-1.5">
+                  <div className="flex items-center gap-2 font-bold text-xs text-emerald-900 dark:text-emerald-200">
+                    <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <span>100% Defensible — Zero AI Hallucinations</span>
+                  </div>
+                  <p className="text-xs text-emerald-950 dark:text-emerald-300 leading-relaxed">
+                    Every calculated number links directly to the legal law (e.g., Massachusetts 310 CMR Wetlands Act &amp; 105 CMR Clinic Licensure). Your users can stake their reputation on this answer in court or before regulatory boards.
+                  </p>
+                </div>
+
+                {/* Value Card 2 */}
+                <div className="rounded-xl border border-[#533AFD]/30 bg-[#533AFD]/5 dark:bg-[#7A68FF]/10 p-4 space-y-1.5">
+                  <div className="flex items-center gap-2 font-bold text-xs text-[#533AFD] dark:text-[#7A68FF]">
+                    <Lock className="h-4 w-4 text-[#533AFD] dark:text-[#7A68FF] shrink-0" />
+                    <span>Your Data Stays 100% Inside Your Private Cloud</span>
+                  </div>
+                  <p className="text-xs text-[var(--color-text-primary)] leading-relaxed">
+                    Powered by a private 4-bit LoRA model running in an isolated container on your private cloud. Your confidential customer records, parcel identifiers, and proprietary calculation formulas NEVER leak to external APIs.
+                  </p>
+                </div>
+
+                {/* Value Card 3 */}
+                <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/20 p-4 space-y-1.5">
+                  <div className="flex items-center gap-2 font-bold text-xs text-amber-900 dark:text-amber-200">
+                    <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                    <span>Unsettled Questions Flagged Explicitly (Zero Guessing)</span>
+                  </div>
+                  <p className="text-xs text-amber-950 dark:text-amber-300 leading-relaxed">
+                    Where the public survey data does not settle a legal question (e.g. seasonal groundwater table variances), the system displays the open question plainly to professional users rather than fabricating a fake &ldquo;clean guess.&rdquo;
+                  </p>
+                </div>
+
+                {/* Value Card 4 */}
+                <div className="rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/20 p-4 space-y-1.5">
+                  <div className="flex items-center gap-2 font-bold text-xs text-teal-900 dark:text-teal-200">
+                    <Clock className="h-4 w-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                    <span>Instant 12.4ms Speed &amp; Massive Cost Savings</span>
+                  </div>
+                  <p className="text-xs text-teal-950 dark:text-teal-300 leading-relaxed">
+                    PostGIS spatial indexing and deterministic math mean you don&apos;t waste thousands of dollars burning LLM tokens on basic arithmetic. Queries resolve in milliseconds with sub-cent cloud infrastructure overhead.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              /* Technical JSON & Execution Details */
+              <pre className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 text-xs font-mono text-[var(--color-text-primary)] overflow-x-auto max-h-72 leading-relaxed">
+                {JSON.stringify(result, null, 2)}
+              </pre>
+            )}
           </div>
         )}
       </CardContent>
