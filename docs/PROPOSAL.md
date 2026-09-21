@@ -6,14 +6,14 @@ hi michael,
 
 i built a working regulatory audit cockpit so you can test how Next.js and PostgreSQL + PostGIS trace rules without guesswork.
 
-it demonstrates deterministic rule linkage where every calculated number ties back to statutory citations (e.g. 310 CMR / 42 CFR), PostGIS spatial boundary buffers (ST_DWithin), and explicit open flags whenever data does not settle a question.
+the underlying engine uses 4-bit quantized lora adapters running in an isolated container. your data stays 100% inside your private cloud. every displayed number traces back to statutory citations (e.g. 310 CMR / 42 CFR) with PostGIS spatial buffer joins (ST_DWithin) and explicit flags for open legal questions.
 
-for ongoing 20 hrs/week engineering, my rate is $75/hr. here is how i structure the takeover:
-• week 1: deep code and schema audit, local seed reproduction, and EXPLAIN (ANALYZE, BUFFERS) baseline on core queries
+at $80/hr for 20 hrs/week, here is how i structure the takeover:
+• week 1: full local stack reproduction, schema audit, and EXPLAIN (ANALYZE, BUFFERS) baseline on slow queries
 • week 2: blunt technical handover assessment delivered (what is rock solid, what is a liability, and prioritized fixes)
-• ongoing: small-to-medium features shipped in days, dependency/Render health, and zero guesswork
+• ongoing: small-to-medium features shipped in days, Python calc engine bridge, and zero guesswork
 
-which spatial data layer or public regulatory dataset are your users querying most right now (zoning parcels, environmental buffers, or health codes)?
+which cloud infrastructure is your Python pipeline running on (Render, AWS, or GCP)?
 
 happy to hop on a quick 10-minute call to walk through the architecture.
 
