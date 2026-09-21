@@ -127,8 +127,19 @@ export function Footer() {
                 </div>
 
                 <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
-                  12+ Years Enterprise Systems Engineering. Former Lead Engineer at Legiit ($1M ARR Command Center). Securiti Certified AI Security & Governance Architect (Cert ID: 14B411BCE-14B411A3D-1451CFE76).
+                  12+ Years Enterprise Systems Engineering. Former Lead Engineer at Legiit ($1M ARR Command Center). Securiti Certified AI Security &amp; Governance Architect (Cert ID: 14B411BCE-14B411A3D-1451CFE76).
                 </p>
+                <div className="pt-1.5">
+                  <a
+                    href="https://ml-bangla.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#533AFD] dark:text-[#7A68FF] hover:underline font-semibold"
+                  >
+                    <span>Enterprise ML Research Lab</span>
+                    <ExternalLink className="h-3 w-3 shrink-0" />
+                  </a>
+                </div>
               </div>
 
               <div className="pt-2 border-t border-[var(--color-border)] flex items-center justify-between text-[11px] font-mono">

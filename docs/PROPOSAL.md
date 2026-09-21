@@ -1,12 +1,15 @@
 live: https://regulatrace-core.vercel.app
 code: https://github.com/exelentshakil/regulatrace-core
 work: https://shakilhq.com
+ml lab: https://ml-bangla.vercel.app
 
 hi michael,
 
-i built a working regulatory audit cockpit so you can test how Next.js and PostgreSQL + PostGIS trace rules without guesswork.
+i built a working regulatory audit cockpit so you can test how Next.js and PostgreSQL + PostGIS trace rules with zero guesswork.
 
-the underlying engine uses 4-bit quantized lora adapters running in an isolated container. your data stays 100% inside your private cloud. every displayed number traces back to statutory citations (e.g. 310 CMR / 42 CFR) with PostGIS spatial buffer joins (ST_DWithin) and explicit flags for open legal questions.
+whether you need strict deterministic data or custom AI, the underlying engine uses 4-bit quantized lora adapters running in an isolated container. in plain english: you get the power of private custom AI where your confidential data stays 100% inside your private cloud, zero leaks to third parties, and zero hallucinations. every calculation links directly to governing statutory rules (e.g. 310 CMR / 42 CFR) and PostGIS spatial buffers (ST_DWithin).
+
+i bring 12+ years of enterprise engineering (former Lead Engineer at Legiit, $1M ARR command center) combined with certified AI governance.
 
 at $80/hr for 20 hrs/week, here is how i structure the takeover:
 • week 1: full local stack reproduction, schema audit, and EXPLAIN (ANALYZE, BUFFERS) baseline on slow queries
